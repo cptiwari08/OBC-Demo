@@ -69,11 +69,11 @@ module "public_ip" {
 #   depends_on   = [module.Vnet, module.subnet, module.public_ip]
 # }
 
-module "nic" {
-  source     = "../../nic"
-  nic_config = var.nic_config_x
-  depends_on = [module.subnet]
-}
+# module "nic" {
+#   source     = "../../nic"
+#   nic_config = var.nic_config_x
+#   depends_on = [module.subnet]
+# }
 # module "VM" {
 #   source      = "../../VM"
 #   frontend_vm = var.frontend_vm_x

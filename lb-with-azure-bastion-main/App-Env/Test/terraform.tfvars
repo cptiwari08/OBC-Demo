@@ -39,14 +39,25 @@ sub_front_x = {
   # }
 
 }
+# public_ip = {
+#   "pub-ip_vm" = {
+#     public_ip_name      = "frontend-public-ip"
+#     resource_group_name = "Optumapp_rg1"
+#     location            = "Central india"
+#     allocation_method   = "Static"
+#     sku                 = "Standard"
+#   }
 public_ip = {
-  "pub-ip_vm" = {
-    public_ip_name                 = "frontend-public-ip"
+  frontend = {
+    public_ip_name      = "frontend-public-ip"
     resource_group_name = "Optumapp_rg1"
-    location            = "Central india"
+    location            = "Central India"   # सही casing
     allocation_method   = "Static"
     sku                 = "Standard"
   }
+}
+
+
   # "pub-ip_bastion" = {
   #   name                = "bastion-public-ip"
   #   resource_group_name = "Optumapp_rg1"
@@ -71,48 +82,53 @@ public_ip = {
   #   sku                 = "Standard"
   # }
 
-}
+# }
 
-nic_config_x = {
-  "nic_front-1" = {
-    name                = "nic-frontend-app1-1"
-    location            = "Central india"
-    resource_group_name = "Optumapp_rg1"
-    subnet_name         = "frontend_app1"
-    public_ip_name      = "frontend-public-ip"
-    ip_configuration = [
-      {
-        name                          = "ipconfig1"
-        private_ip_address_allocation = "Dynamic"
-      }
-    ]
-  }
-#   # "nic_front-2" = {
-#   #   name                = "nic-frontend-app1-2"
-#   #   location            = "Central india"
-#   #   resource_group_name = "Optumapp_rg1"
-#   #   subnet_name         = "frontend_app1"
-#   #   # public_ip_name      = "backend-public-ip"
-#   #   ip_configuration = [
-#   #     {
-#   #       name                          = "ipconfig2"
-#   #       private_ip_address_allocation = "Dynamic"
-#   #     }
-#   #   ]
-#   # }
-#   # "nic_back-1" = {
-#   #   name                = "nic-backend-app1-1"
-#   #   location            = "Central india"
-#   #   resource_group_name = "Optumapp_rg1"
-#   #   subnet_name         = "backend_app1"
-#   #   # public_ip_name      = "backend-public-ip"
-#   #   ip_configuration = [
-#   #     {
-#   #       name                          = "ipconfig3"
-#   #       private_ip_address_allocation = "Dynamic"
-#   #     }
-#   #   ]
-}
+# nic_config_x = {
+#   "nic_front-1" = {
+#     name                = "nic-frontend-app1-1"
+#     location            = "Central india"
+#     sku                 = "Standard"
+#     resource_group_name = "Optumapp_rg1"
+#     # virtual_network_name = "OptumappVnet"
+#     allocation_method   = "Dynamic"
+#     subnet_name         = "frontend_app1"
+#     public_ip_name      = "frontend-public-ip"
+#     ip_configuration = [
+#       {
+#         name                          = "ipconfig1"
+#         private_ip_address_allocation = "Dynamic"
+#       }
+#     ]
+#   }
+# }
+
+  #   # "nic_front-2" = {
+  #   #   name                = "nic-frontend-app1-2"
+  #   #   location            = "Central india"
+  #   #   resource_group_name = "Optumapp_rg1"
+  #   #   subnet_name         = "frontend_app1"
+  #   #   # public_ip_name      = "backend-public-ip"
+  #   #   ip_configuration = [
+  #   #     {
+  #   #       name                          = "ipconfig2"
+  #   #       private_ip_address_allocation = "Dynamic"
+  #   #     }
+  #   #   ]
+  #   # }
+  #   # "nic_back-1" = {
+  #   #   name                = "nic-backend-app1-1"
+  #   #   location            = "Central india"
+  #   #   resource_group_name = "Optumapp_rg1"
+  #   #   subnet_name         = "backend_app1"
+  #   #   # public_ip_name      = "backend-public-ip"
+  #   #   ip_configuration = [
+  #   #     {
+  #   #       name                          = "ipconfig3"
+  #   #       private_ip_address_allocation = "Dynamic"
+  #   #     }
+  #   #   ]
+# }
 
 # frontend_vm_x = {
 #   "frontend_vm_1" = {
@@ -145,38 +161,38 @@ nic_config_x = {
 #       role = "frontend"
 #     }
 #   }
-  # "frontend_vm_2" = {
-  #   name                            = "Optumapp-frontend-vm-2"
-  #   location                        = "Central india"
-  #   resource_group_name             = "Optumapp_rg1"
-  #   network_interface_name          = "nic-frontend-app1-2"
-  #   size                            = "Standard_B1s"
-  #   admin_username                  = "admin-login"
-  #   admin_password                  = "vm-password"
-  #   disable_password_authentication = false
+# "frontend_vm_2" = {
+#   name                            = "Optumapp-frontend-vm-2"
+#   location                        = "Central india"
+#   resource_group_name             = "Optumapp_rg1"
+#   network_interface_name          = "nic-frontend-app1-2"
+#   size                            = "Standard_B1s"
+#   admin_username                  = "admin-login"
+#   admin_password                  = "vm-password"
+#   disable_password_authentication = false
 
-  #   os_disk = {
-  #     "osdisk-Optumapp-2" = {
-  #       name                 = "osdisk-Optumapp-2"
-  #       caching              = "ReadWrite"
-  #       storage_account_type = "Standard_LRS"
-  #       disk_size_gb         = 30
-  #     }
-  #   }
+#   os_disk = {
+#     "osdisk-Optumapp-2" = {
+#       name                 = "osdisk-Optumapp-2"
+#       caching              = "ReadWrite"
+#       storage_account_type = "Standard_LRS"
+#       disk_size_gb         = 30
+#     }
+#   }
 
-  #   source_image_reference = {
-  #     "Canonnical" = {
-  #       publisher = "Canonical"
-  #       offer     = "0001-com-ubuntu-server-jammy"
-  #       sku       = "22_04-LTS"
-  #       version   = "latest"
-  #     }
+#   source_image_reference = {
+#     "Canonnical" = {
+#       publisher = "Canonical"
+#       offer     = "0001-com-ubuntu-server-jammy"
+#       sku       = "22_04-LTS"
+#       version   = "latest"
+#     }
 
-  #   }
-  #   tags = {
-  #     role = "frontend"
-  #   }
-  # }
+#   }
+#   tags = {
+#     role = "frontend"
+#   }
+# }
 
 # }
 

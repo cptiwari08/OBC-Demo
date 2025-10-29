@@ -58,14 +58,16 @@ variable "sub_front_x" {
 }
 
 variable "public_ip" {
+  description = "Map of Public IP configs"
   type = map(object({
-    name                = string
-    location            = string
+    public_ip_name      = string
     resource_group_name = string
+    location            = string
     allocation_method   = string
     sku                 = string
   }))
 }
+
 
 # variable "natgw_x" {
 #   type = map(object({
@@ -96,19 +98,21 @@ variable "public_ip" {
 #   }))
 # }
 
-variable "nic_config_x" {
-  type = map(object({
-    name                = string
-    location            = string
-    resource_group_name = string
-    subnet_name         = string
-    public_ip_name      = string
-    ip_configuration = list(object({
-      name                          = string
-      private_ip_address_allocation = string
-    }))
-  }))
-}
+# variable "nic_config_x" {
+#   type = map(object({
+#     name                = string
+#     location            = string
+#     resource_group_name = string
+#     subnet_name         = string
+#     public_ip_name      = string
+#     sku                 = string
+#     allocation_method   = string
+#     ip_configuration = list(object({
+#       name                          = string
+#       private_ip_address_allocation = string
+#     }))
+#   }))
+# }
 
 # variable "frontend_vm_x" {
 #   type = map(object({
