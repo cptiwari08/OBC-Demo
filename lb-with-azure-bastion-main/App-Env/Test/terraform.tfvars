@@ -39,14 +39,14 @@ sub_front_x = {
   # }
 
 }
-public_ip_x = {
-  "pub-ip_vm" = {
-    name                = "VM-public-ip"
-    resource_group_name = "Optumapp_rg1"
-    location            = "Central india"
-    allocation_method   = "Static"
-    sku                 = "Standard"
-  }
+# public_ip_x = {
+#   "pub-ip_vm" = {
+#     public_ip_name                 = "frontend-public-ip"
+#     resource_group_name = "Optumapp_rg1"
+#     location            = "Central india"
+#     allocation_method   = "Static"
+#     sku                 = "Standard"
+#   }
   # "pub-ip_bastion" = {
   #   name                = "bastion-public-ip"
   #   resource_group_name = "Optumapp_rg1"
@@ -71,80 +71,80 @@ public_ip_x = {
   #   sku                 = "Standard"
   # }
 
-}
+# }
 
-nic_config_x = {
-  "nic_front-1" = {
-    name                = "nic-frontend-app1-1"
-    location            = "Central india"
-    resource_group_name = "Optumapp_rg1"
-    subnet_name         = "frontend_app1"
-    public_ip_name      = "frontend-public-ip"
-    ip_configuration = [
-      {
-        name                          = "ipconfig1"
-        private_ip_address_allocation = "Dynamic"
-      }
-    ]
-  }
-  # "nic_front-2" = {
-  #   name                = "nic-frontend-app1-2"
-  #   location            = "Central india"
-  #   resource_group_name = "Optumapp_rg1"
-  #   subnet_name         = "frontend_app1"
-  #   # public_ip_name      = "backend-public-ip"
-  #   ip_configuration = [
-  #     {
-  #       name                          = "ipconfig2"
-  #       private_ip_address_allocation = "Dynamic"
-  #     }
-  #   ]
-  # }
-  # "nic_back-1" = {
-  #   name                = "nic-backend-app1-1"
-  #   location            = "Central india"
-  #   resource_group_name = "Optumapp_rg1"
-  #   subnet_name         = "backend_app1"
-  #   # public_ip_name      = "backend-public-ip"
-  #   ip_configuration = [
-  #     {
-  #       name                          = "ipconfig3"
-  #       private_ip_address_allocation = "Dynamic"
-  #     }
-  #   ]
-}
+# nic_config_x = {
+#   "nic_front-1" = {
+#     name                = "nic-frontend-app1-1"
+#     location            = "Central india"
+#     resource_group_name = "Optumapp_rg1"
+#     subnet_name         = "frontend_app1"
+#     public_ip_name      = "frontend-public-ip"
+#     ip_configuration = [
+#       {
+#         name                          = "ipconfig1"
+#         private_ip_address_allocation = "Dynamic"
+#       }
+#     ]
+#   }
+#   # "nic_front-2" = {
+#   #   name                = "nic-frontend-app1-2"
+#   #   location            = "Central india"
+#   #   resource_group_name = "Optumapp_rg1"
+#   #   subnet_name         = "frontend_app1"
+#   #   # public_ip_name      = "backend-public-ip"
+#   #   ip_configuration = [
+#   #     {
+#   #       name                          = "ipconfig2"
+#   #       private_ip_address_allocation = "Dynamic"
+#   #     }
+#   #   ]
+#   # }
+#   # "nic_back-1" = {
+#   #   name                = "nic-backend-app1-1"
+#   #   location            = "Central india"
+#   #   resource_group_name = "Optumapp_rg1"
+#   #   subnet_name         = "backend_app1"
+#   #   # public_ip_name      = "backend-public-ip"
+#   #   ip_configuration = [
+#   #     {
+#   #       name                          = "ipconfig3"
+#   #       private_ip_address_allocation = "Dynamic"
+#   #     }
+#   #   ]
+# }
 
-frontend_vm_x = {
-  "frontend_vm_1" = {
-    name                            = "Optumapp-frontend-vm-1"
-    location                        = "Central india"
-    resource_group_name             = "Optumapp_rg1"
-    network_interface_name          = "nic-frontend-app1-1"
-    size                            = "Standard_B1s"
-    admin_username                  = "admin-login"
-    admin_password                  = "vm-password"
-    disable_password_authentication = false
-    os_disk = {
-      "osdisk-Optumapp-1" = {
-        name                 = "osdisk-Optumapp-1"
-        caching              = "ReadWrite"
-        storage_account_type = "Standard_LRS"
-        disk_size_gb         = 30
-      }
-    }
-    source_image_reference = {
-      "Canonnical" = {
-        publisher = "Canonical"
-        offer     = "0001-com-ubuntu-server-jammy"
-        sku       = "22_04-LTS"
-        version   = "latest"
-      }
+# frontend_vm_x = {
+#   "frontend_vm_1" = {
+#     name                            = "Optumapp-frontend-vm-1"
+#     location                        = "Central india"
+#     resource_group_name             = "Optumapp_rg1"
+#     network_interface_name          = "nic-frontend-app1-1"
+#     size                            = "Standard_B1s"
+#     admin_username                  = "admin-login"
+#     admin_password                  = "vm-password"
+#     disable_password_authentication = false
+#     os_disk = {
+#       "osdisk-Optumapp-1" = {
+#         name                 = "osdisk-Optumapp-1"
+#         caching              = "ReadWrite"
+#         storage_account_type = "Standard_LRS"
+#         disk_size_gb         = 30
+#       }
+#     }
+#     source_image_reference = {
+#       "Canonnical" = {
+#         publisher = "Canonical"
+#         offer     = "0001-com-ubuntu-server-jammy"
+#         sku       = "22_04-LTS"
+#         version   = "latest"
+#       }
 
-    }
-    tags = {
-      role = "frontend"
-    }
-  }
+#     }
+#     tags = {
+#       role = "frontend"
+#     }
+#   }
   # "frontend_vm_2" = {
   #   name                            = "Optumapp-frontend-vm-2"
   #   location                        = "Central india"
@@ -178,7 +178,7 @@ frontend_vm_x = {
   #   }
   # }
 
-}
+# }
 
 
 # backend_vm_x = {
@@ -359,22 +359,22 @@ frontend_vm_x = {
 #         source_address_prefix      = "*"
 #         destination_address_prefix = "*"
 #       }
-      # "rule2" = {
-      #   name                       = "Allow-SSH"
-      #   priority                   = 200
-      #   direction                  = "Inbound"
-      #   access                     = "Allow"
-      #   protocol                   = "Tcp"
-      #   source_port_range          = "*"
-      #   destination_port_range     = "22"
-      #   source_address_prefix      = "*"
-      #   destination_address_prefix = "*"
-      # }
-  #   }
-  #   tags = {
-  #     environment = "dev"
-  #   }
-  # }
+# "rule2" = {
+#   name                       = "Allow-SSH"
+#   priority                   = 200
+#   direction                  = "Inbound"
+#   access                     = "Allow"
+#   protocol                   = "Tcp"
+#   source_port_range          = "*"
+#   destination_port_range     = "22"
+#   source_address_prefix      = "*"
+#   destination_address_prefix = "*"
+# }
+#   }
+#   tags = {
+#     environment = "dev"
+#   }
+# }
 #   "NSG_back" = {
 #     name                = "Optumapp-nsg-back"
 #     location            = "Central India"

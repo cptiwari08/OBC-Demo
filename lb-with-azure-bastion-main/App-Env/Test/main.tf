@@ -2,6 +2,18 @@ module "xyz" {
   source  = "../../resource"
   rg_name = var.rg_name_x
 }
+module "Vnet" {
+  source     = "../../vnet"
+  vnet_y     = var.vnet_x
+  depends_on = [module.xyz]
+
+}
+module "subnet" {
+  source     = "../../subnet"
+  sub_front  = var.sub_front_x
+  depends_on = [module.Vnet]
+
+}
 # module "abc" {
 #   source     = "../storage"
 #   stg        = var.stg_x
@@ -25,12 +37,12 @@ module "subnet" {
   depends_on = [module.Vnet]
 
 }
-module "public_ip" {
-  source     = "../../publicip"
-  public_ip  = var.public_ip_x
-  depends_on = [module.Vnet]
+# module "public_ip" {
+#   source     = "../../publicip"
+#   public_ip  = var.public_ip_x
+#   depends_on = [module.Vnet]
 
-}
+# }
 
 # module "natgw" {
 #   source     = "../NAT-GW"
@@ -56,18 +68,18 @@ module "public_ip" {
 #   depends_on   = [module.Vnet, module.subnet, module.public_ip]
 # }
 
-module "nic" {
-  source     = "../../nic"
-  nic_config = var.nic_config_x
-  depends_on = [module.subnet]
-}
-module "VM" {
-  source      = "../../VM"
-  frontend_vm = var.frontend_vm_x
-  # backend_vm  = var.backend_vm_x
-  depends_on  = [module.nic]
+# module "nic" {
+#   source     = "../../nic"
+#   nic_config = var.nic_config_x
+#   depends_on = [module.subnet]
+# }
+# module "VM" {
+#   source      = "../../VM"
+#   frontend_vm = var.frontend_vm_x
+#   # backend_vm  = var.backend_vm_x
+#   depends_on = [module.nic]
 
-}
+# }
 
 # module "lb" {
 #   source      = "../load-balancer"
