@@ -25,18 +25,18 @@ module "subnet" {
 #   flexi_server = var.flexi_server_x
 #   depends_on   = [module.xyz, module.VM]
 # }
-module "Vnet" {
-  source     = "../../vnet"
-  vnet_y     = var.vnet_x
-  depends_on = [module.xyz]
+# module "Vnet" {
+#   source     = "../../vnet"
+#   vnet_y     = var.vnet_x
+#   depends_on = [module.xyz]
 
-}
-module "subnet" {
-  source     = "../../subnet"
-  sub_front  = var.sub_front_x
-  depends_on = [module.Vnet]
+# }
+# module "subnet" {
+#   source     = "../../subnet"
+#   sub_front  = var.sub_front_x
+#   depends_on = [module.Vnet]
 
-}
+# }
 # module "public_ip" {
 #   source     = "../../publicip"
 #   public_ip  = var.public_ip_x
