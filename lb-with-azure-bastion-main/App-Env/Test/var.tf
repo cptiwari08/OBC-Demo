@@ -211,26 +211,26 @@ variable "frontend_vm_x" {
 #   }))
 # }
 
-variable "NSG_x" {
-  type = map(object({
-    name                = string
-    location            = string
-    resource_group_name = string
-    security_rule = map(object({
-      name                       = string
-      priority                   = number
-      direction                  = string
-      access                     = string
-      protocol                   = string
-      source_port_range          = string
-      destination_port_range     = string
-      source_address_prefix      = string
-      destination_address_prefix = string
-    }))
-    tags = map(string)
-  }))
+# variable "NSG_x" {
+#   type = map(object({
+#     name                = string
+#     location            = string
+#     resource_group_name = string
+#     security_rule = map(object({
+#       name                       = string
+#       priority                   = number
+#       direction                  = string
+#       access                     = string
+#       protocol                   = string
+#       source_port_range          = string
+#       destination_port_range     = string
+#       source_address_prefix      = string
+#       destination_address_prefix = string
+#     }))
+#     tags = map(string)
+#   }))
 
-}
+# }
 
 # variable "nsg_assoc_x" {
 #   type = map(object({

@@ -114,11 +114,11 @@ module "VM" {
 
 
 
-module "NSG" {
-  source     = "../../NSG"
-  NSG        = var.NSG_x
-  depends_on = [module.nic, module.VM]
-}
+# module "NSG" {
+#   source     = "../../NSG"
+#   NSG        = var.NSG_x
+#   depends_on = [module.nic, module.VM]
+# }
 
 # module "NSG-assoc" {
 #   source     = "../NSG-assoc"

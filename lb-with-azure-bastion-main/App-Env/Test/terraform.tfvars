@@ -6,41 +6,6 @@ rg_name_x = {
   }
 
 }
-# stg_x = {
-#   "stg1" = {
-#     name                     = "Optumappstg321"
-#     resource_group_name      = "Optumapp_rg"
-#     location                 = "Central india"
-#     account_tier             = "Standard"
-#     account_replication_type = "LRS"
-#   }
-# }
-
-# cnt_x = {
-#   "cnt2" = {
-#     name                  = "Optumappcnt321"
-#     storage_account_id    = "stg1"
-#     container_access_type = "private"
-
-#   }
-# }
-# flexi_server_x = {
-#   "srv" = {
-#     name                   = "Optumappflexi-srver"
-#     resource_group_name    = "Optumapp_rg1"
-#     location               = "Central india"
-#     administrator_login    = "db-login1"
-#     administrator_password = "admin-pass"
-#     sku                    = "B_Standard_B1ms"
-#     version                = "8.0.21"
-#     tags = {
-#       environment   = "dev"
-#       workload_type = "Dev/Test"
-
-#     }
-
-#   }
-# }
 vnet_x = {
   "vnet_z" = {
     name                = "OptumappVnet"
@@ -74,8 +39,14 @@ sub_front_x = {
   # }
 
 }
-
 public_ip_x = {
+  "pub-ip_vm" = {
+    name                = "VM-public-ip"
+    resource_group_name = "Optumapp_rg1"
+    location            = "Central india"
+    allocation_method   = "Static"
+    sku                 = "Standard"
+  }
   # "pub-ip_bastion" = {
   #   name                = "bastion-public-ip"
   #   resource_group_name = "Optumapp_rg1"
@@ -92,43 +63,15 @@ public_ip_x = {
   #   sku                 = "Standard"
   # }
 
-  "pub-ip_NAT" = {
-    name                = "NAT-public-ip"
-    resource_group_name = "Optumapp_rg1"
-    location            = "Central india"
-    allocation_method   = "Static"
-    sku                 = "Standard"
-  }
+  # "pub-ip_NAT" = {
+  #   name                = "NAT-public-ip"
+  #   resource_group_name = "Optumapp_rg1"
+  #   location            = "Central india"
+  #   allocation_method   = "Static"
+  #   sku                 = "Standard"
+  # }
 
 }
-
-# natgw_x = {
-#   "nat-gw" = {
-#     name                = "Optumapp-nat-gw"
-#     location            = "Central india"
-#     resource_group_name = "Optumapp_rg1"
-#     sku                 = "Standard"
-#   }
-# }
-
-# natgw_assoc_x = {
-#   "natgw_assoc" = {
-#     nat_gateway_name = "Optumapp-nat-gw"
-#     natgw_rg         = "Optumapp_rg1"
-#     public_ip_name   = "NAT-public-ip"
-#     public_ip_rg     = "Optumapp_rg1"
-#   }
-# }
-
-# subnet_assoc_x = {
-#   "subnet_assoc" = {
-#     subnet_name      = "frontend_app1"
-#     subnet_rg        = "Optumapp_rg1"
-#     vnet_name        = "OptumappVnet"
-#     nat_gateway_name = "Optumapp-nat-gw"
-#     nat_gateway_rg   = "Optumapp_rg1"
-#   }
-# }
 
 nic_config_x = {
   "nic_front-1" = {
@@ -169,8 +112,7 @@ nic_config_x = {
   #       private_ip_address_allocation = "Dynamic"
   #     }
   #   ]
-  }
-# }
+}
 
 frontend_vm_x = {
   "frontend_vm_1" = {
@@ -272,6 +214,79 @@ frontend_vm_x = {
 #   }
 # }
 
+
+# }
+# stg_x = {
+#   "stg1" = {
+#     name                     = "Optumappstg321"
+#     resource_group_name      = "Optumapp_rg"
+#     location                 = "Central india"
+#     account_tier             = "Standard"
+#     account_replication_type = "LRS"
+#   }
+# }
+
+# cnt_x = {
+#   "cnt2" = {
+#     name                  = "Optumappcnt321"
+#     storage_account_id    = "stg1"
+#     container_access_type = "private"
+
+#   }
+# }
+# flexi_server_x = {
+#   "srv" = {
+#     name                   = "Optumappflexi-srver"
+#     resource_group_name    = "Optumapp_rg1"
+#     location               = "Central india"
+#     administrator_login    = "db-login1"
+#     administrator_password = "admin-pass"
+#     sku                    = "B_Standard_B1ms"
+#     version                = "8.0.21"
+#     tags = {
+#       environment   = "dev"
+#       workload_type = "Dev/Test"
+
+#     }
+
+#   }
+# }
+
+
+
+
+# natgw_x = {
+#   "nat-gw" = {
+#     name                = "Optumapp-nat-gw"
+#     location            = "Central india"
+#     resource_group_name = "Optumapp_rg1"
+#     sku                 = "Standard"
+#   }
+# }
+
+# natgw_assoc_x = {
+#   "natgw_assoc" = {
+#     nat_gateway_name = "Optumapp-nat-gw"
+#     natgw_rg         = "Optumapp_rg1"
+#     public_ip_name   = "NAT-public-ip"
+#     public_ip_rg     = "Optumapp_rg1"
+#   }
+# }
+
+# subnet_assoc_x = {
+#   "subnet_assoc" = {
+#     subnet_name      = "frontend_app1"
+#     subnet_rg        = "Optumapp_rg1"
+#     vnet_name        = "OptumappVnet"
+#     nat_gateway_name = "Optumapp-nat-gw"
+#     nat_gateway_rg   = "Optumapp_rg1"
+#   }
+# }
+
+
+
+
+
 # frontend_lb_x = {
 #   "frontend_lb_1" = {
 #     name                = "Optumapp-frontend-lb-1"
@@ -327,23 +342,23 @@ frontend_vm_x = {
 #   }
 # }
 
-NSG_x = {
-  "NSG_front" = {
-    name                = "Optumapp-nsg-front"
-    location            = "Central India"
-    resource_group_name = "Optumapp_rg1"
-    security_rule = {
-      "rule1" = {
-        name                       = "Allow-HTTP"
-        priority                   = 100
-        direction                  = "Inbound"
-        access                     = "Allow"
-        protocol                   = "Tcp"
-        source_port_range          = "*"
-        destination_port_range     = "80"
-        source_address_prefix      = "*"
-        destination_address_prefix = "*"
-      }
+# NSG_x = {
+#   "NSG_front" = {
+#     name                = "Optumapp-nsg-front"
+#     location            = "Central India"
+#     resource_group_name = "Optumapp_rg1"
+#     security_rule = {
+#       "rule1" = {
+#         name                       = "Allow-HTTP"
+#         priority                   = 100
+#         direction                  = "Inbound"
+#         access                     = "Allow"
+#         protocol                   = "Tcp"
+#         source_port_range          = "*"
+#         destination_port_range     = "80"
+#         source_address_prefix      = "*"
+#         destination_address_prefix = "*"
+#       }
       # "rule2" = {
       #   name                       = "Allow-SSH"
       #   priority                   = 200
@@ -355,11 +370,11 @@ NSG_x = {
       #   source_address_prefix      = "*"
       #   destination_address_prefix = "*"
       # }
-    }
-    tags = {
-      environment = "dev"
-    }
-  }
+  #   }
+  #   tags = {
+  #     environment = "dev"
+  #   }
+  # }
 #   "NSG_back" = {
 #     name                = "Optumapp-nsg-back"
 #     location            = "Central India"
@@ -392,7 +407,7 @@ NSG_x = {
 #       environment = "Dev"
 #     }
 #   }
-}
+# }
 # sql-server_x = {
 #   "sql-server" = {
 #     name                         = "Optumapp-sql-server"
