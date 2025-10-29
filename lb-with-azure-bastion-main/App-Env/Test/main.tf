@@ -30,7 +30,7 @@ module "subnet" {
 #   vnet_y     = var.vnet_x
 #   depends_on = [module.xyz]
 
-}
+# }
 module "subnet" {
   source     = "../../subnet"
   sub_front  = var.sub_front_x
