@@ -10,7 +10,7 @@ resource "azurerm_network_interface" "nic_config" {
       name                          = ip_configuration.value.name
       subnet_id                     = data.azurerm_subnet.subnets[each.key].id
       private_ip_address_allocation = ip_configuration.value.private_ip_address_allocation
-      # public_ip_address_id          = data.azurerm_public_ip.ips[each.key].id
+      public_ip_address_id          = data.azurerm_public_ip.ips[each.key].id
     }
   }
 }

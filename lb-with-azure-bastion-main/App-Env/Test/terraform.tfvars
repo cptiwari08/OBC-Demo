@@ -169,8 +169,9 @@ nic_config_x = {
   #       private_ip_address_allocation = "Dynamic"
   #     }
   #   ]
-  # }
-}
+  }
+# }
+
 frontend_vm_x = {
   "frontend_vm_1" = {
     name                            = "Optumapp-frontend-vm-1"
