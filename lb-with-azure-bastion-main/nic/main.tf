@@ -14,3 +14,4 @@ resource "azurerm_network_interface" "nic_config" {
     }
   }
 }
+
