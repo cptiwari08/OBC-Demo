@@ -39,7 +39,7 @@ sub_front_x = {
   # }
 
 }
-public_ip_x = {
+public_ip = {
   "pub-ip_vm" = {
     public_ip_name                 = "frontend-public-ip"
     resource_group_name = "Optumapp_rg1"

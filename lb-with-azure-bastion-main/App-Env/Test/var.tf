@@ -57,7 +57,7 @@ variable "sub_front_x" {
 
 }
 
-variable "public_ip_x" {
+variable "public_ip" {
   type = map(object({
     name                = string
     location            = string

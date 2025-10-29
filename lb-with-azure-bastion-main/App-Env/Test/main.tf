@@ -39,7 +39,7 @@ module "subnet" {
 # }
 module "public_ip" {
   source     = "../../publicip"
-  public_ip  = var.public_ip_x
+  public_ip  = var.public_ip
   depends_on = [module.Vnet]
 
 }
